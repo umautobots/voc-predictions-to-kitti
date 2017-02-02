@@ -16,18 +16,21 @@ VOC predictions are stored line by line, *one file per detection class*
 
 e.g
 
+```
 $ head -2 path/to/output/VOC2012/Main/comp4_det_trainval_car.txt
 213222 0.501 851.6 207.0 1072.3 298.9
 213222 0.124 238.5 187.9 419.2 274.8
+```
 
 ## KITTI
 
-KITTI predictions are stored line by line, *one file per image, e.g
+KITTI predictions are stored line by line, *one file per image*, e.g
 
+```
 $ head -2 ~/test-kitti-container/my-kitti-labels/000000.txt
 Car -1 -1 -10.000000 541.131 197.575 649.552 232.957 -1 -1 -1 -1 -1 -1 -1 0.903
 Car -1 -1 -10.000000 299.747 215.436 422.328 248.200 -1 -1 -1 -1 -1 -1 -1 0.388
-
+```
 
 To run:
 
