@@ -27,8 +27,10 @@ def main():
 
     in_order = sorted(by_image_id.keys())
 
-    for index, image_id in enumerate(in_order):
+    fs_todos = set([f"{i:06d}.txt" for i in range(7481)])
+    for image_id in in_order:
         kitti_name = f"{image_id}.txt"
+        fs_todos.remove(kitti_name)
         with open(f"/output/KITTI/{kitti_name}", 'w') as out_f:
             out_f_csv = csv.writer(out_f, delimiter=' ', quoting=csv.QUOTE_MINIMAL)
             for voc_row in by_image_id[image_id]:
@@ -38,6 +40,10 @@ def main():
                 out_f_csv.writerow([CONVERT_LABEL.get(label, label), -1, -1, -1] +
                                    [f"{float(coord) - 1:.2f}" for coord in [x1, y1, x2, y2]] +
                                    [-1, -1, -1, -1, -1, -1, -1, f"{float(confidence):.3f}"])
+
+    # make empty files for any images with no detections
+    for kitti_name in fs_todos:
+        open(f"/output/KITTI/{kitti_name}", 'a').close()
 
 
 if __name__ == '__main__':
