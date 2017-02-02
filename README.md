@@ -1,6 +1,12 @@
 # VOC predictions to KITTI
 
-Script to create voc style predictions to kitti style.
+Script to create [VOC](http://host.robots.ox.ac.uk/pascal/VOC/voc2012/htmldoc/index.html) style predictions to
+[KITTI](http://www.cvlibs.net/datasets/kitti/eval_object.php)
+style, which is handy if you wish to run KITTI's
+evaluation function ([e.g](https://github.com/umautobots/nn-dockerfiles/tree/master/kitti-evaluate)).
+
+It is assumed the network has been evaluated on KITTI in VOC format ([e.g](https://github.com/umautobots/nn-dockerfiles/tree/master/mxnet-rcnn))
+so there should be 7481 images named like 000000.jpg.
 
 ## VOC
 
@@ -22,15 +28,6 @@ $ head -2 ~/test-kitti-container/my-kitti-labels/000000.txt
 Car -1 -1 -10.000000 541.131 197.575 649.552 232.957 -1 -1 -1 -1 -1 -1 -1 0.903
 Car -1 -1 -10.000000 299.747 215.436 422.328 248.200 -1 -1 -1 -1 -1 -1 -1 0.388
 
-Furthermore, KITTI expects the files to be named in a %6d.txt, so any filenames from VOC need to be mapped to this style.
-
-VOC
-
-mkdir /mnt/ngv/training-runs/2017-01-30-mxnet-rcnn-gta25k-yas/evaluate-on-kitti/kitti-labels
-
-
-/mnt/ngv/training-runs/2017-01-30-mxnet-rcnn-gta25k-yas/evaluate-on-kitti/VOC2012/Main/comp4_det_trainval_car.txt
-
 
 To run:
 
@@ -42,9 +39,9 @@ $ . doit.sh /path/to/voc-labels /path/to/output-labels
 for example
 
 ```
-$ mkdir /mnt/ngv/training-runs/2017-01-30-mxnet-rcnn-gta25k-yas/evaluate-on-kitti/kitti-labels
+$ mkdir /mnt/ngv/training-runs/2017-01-30-mxnet-rcnn-gta25k/evaluate-on-kitti/kitti-labels
 $ . doit.sh \
-  /mnt/ngv/training-runs/2017-01-30-mxnet-rcnn-gta25k-yas/evaluate-on-kitti/VOC2012/Main \
-  /mnt/ngv/training-runs/2017-01-30-mxnet-rcnn-gta25k-yas/evaluate-on-kitti/kitti-labels
+  /mnt/ngv/training-runs/2017-01-30-mxnet-rcnn-gta25k/evaluate-on-kitti/VOC2012/Main \
+  /mnt/ngv/training-runs/2017-01-30-mxnet-rcnn-gta25k/evaluate-on-kitti/kitti-labels
 ```
 
