@@ -12,7 +12,9 @@ so there should be 7481 images named like 000000.jpg.
 
 VOC predictions are stored line by line, *one file per detection class*
 
+```
 <image identifier> <confidence> <left> <top> <right> <bottom>
+```
 
 e.g
 
