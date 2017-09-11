@@ -5,6 +5,8 @@ Script to create [VOC](http://host.robots.ox.ac.uk/pascal/VOC/voc2012/htmldoc/in
 style, which is handy if you wish to run KITTI's
 evaluation function ([e.g](https://github.com/umautobots/nn-dockerfiles/tree/master/kitti-evaluate)).
 
+See [our instructions for reproducing training and evaluation for Driving in the Matrix](https://github.com/umautobots/driving-in-the-matrix) for our use case of this script.
+
 It is assumed the network has been evaluated on KITTI in VOC format ([e.g](https://github.com/umautobots/nn-dockerfiles/tree/master/mxnet-rcnn))
 so there should be 7481 images named like 000000.jpg.
 
